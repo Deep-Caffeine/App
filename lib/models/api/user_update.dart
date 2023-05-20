@@ -18,11 +18,11 @@ class UserUpdateResponse {
   factory UserUpdateResponse.fromJson(Map<String, dynamic> json) {
     return UserUpdateResponse(
       error: json['error'],
-      email: json['email'],
-      password: json['password'],
-      username: json['username'],
-      phone: json['phone'],
-      birth: json['birth'],
+      email: json['email'] ?? false,
+      password: json['password'] ?? false,
+      username: json['username'] ?? false,
+      phone: json['phone'] ?? false,
+      birth: json['birth'] ?? false,
     );
   }
 
