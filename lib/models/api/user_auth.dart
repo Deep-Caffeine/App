@@ -1,16 +1,19 @@
 class UserAuthResponse {
-  final String accessToken;
-  final String refreshToken;
+  final String? accessToken;
+  final String? refreshToken;
+  final int statusCode;
 
   UserAuthResponse({
-    required this.accessToken,
-    required this.refreshToken
+    this.accessToken,
+    this.refreshToken,
+    required this.statusCode
   });
 
-  factory UserAuthResponse.fromJson(Map<String, dynamic> json) {
+  factory UserAuthResponse.fromJson(Map<String, dynamic> json, int code) {
     return UserAuthResponse(
       accessToken: json['access_token'],
-      refreshToken: json['refresh_token']
+      refreshToken: json['refresh_token'],
+      statusCode: code
     );
   }
 
@@ -18,6 +21,7 @@ class UserAuthResponse {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['access_token'] = accessToken;
     data['refresh_token'] = refreshToken;
+    data['status_code'] = statusCode;
     return data;
   }
 }
