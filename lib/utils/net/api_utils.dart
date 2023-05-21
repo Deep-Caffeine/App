@@ -12,9 +12,23 @@ class APIUtils {
 
 
   // CREATE
+  final String url = dotenv.env['API_BASE_HTTP']!;
+
+  Future<UserCreateResponse?> createUser() async {
+    final response = await http.post(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      final jsonBody = json.decode(response.body);
+      return UserCreateResponse.fromJson(jsonBody);
+    } else {
+      print('User create failed : ${response.statusCode}');
+      throw Exception('Failed to load UserCreateResponse');
+    }
+  }
 
 
-  // READ
+
+// READ
 
 
   // UPDATE
