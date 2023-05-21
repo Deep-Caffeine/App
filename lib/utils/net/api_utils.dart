@@ -17,7 +17,6 @@ class APIUtils {
   // UPDATE
 
   // DELETE
-  static const String url = "<https://www.ideaconnect.online/user>";
   static Future<int> deleteUser() async {
     final response = await http.delete(Uri.parse(url));
     return response.statusCode;
