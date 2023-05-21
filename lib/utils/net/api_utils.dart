@@ -1,9 +1,13 @@
-import 'package:http/http.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:deu_project/models/api/user_auth.dart';
 import 'package:deu_project/models/api/user_auth_refresh.dart';
 import 'package:deu_project/models/api/user_create.dart';
 import 'package:deu_project/models/api/user_read.dart';
 import 'package:deu_project/models/api/user_update.dart';
+
+String baseUrl = dotenv.env['API_BASE_HTTP']!;
 
 class APIUtils {
 
