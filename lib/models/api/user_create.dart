@@ -1,28 +1,31 @@
 class UserCreateResponse {
-  final String error;
-  final bool email;
-  final bool password;
-  final bool username;
-  final bool phone;
-  final bool birth;
+  final String? error;
+  final bool? email;
+  final bool? password;
+  final bool? username;
+  final bool? phone;
+  final bool? birth;
+  final int statusCode;
 
   UserCreateResponse({
-    required this.error,
-    required this.email,
-    required this.password,
-    required this.username,
-    required this.phone,
-    required this.birth
+    this.error,
+    this.email,
+    this.password,
+    this.username,
+    this.phone,
+    this.birth,
+    required this.statusCode
   });
 
-  factory UserCreateResponse.fromJson(Map<String, dynamic> json) {
+  factory UserCreateResponse.fromJson(Map<String, dynamic> json, int code) {
     return UserCreateResponse(
       error: json['error'],
-      email: json['email'] ?? false,
-      password: json['password'] ?? false,
-      username: json['username'] ?? false,
-      phone: json['phone'] ?? false,
-      birth: json['birth'] ?? false,
+      email: json['email'],
+      password: json['password'],
+      username: json['username'],
+      phone: json['phone'],
+      birth: json['birth'],
+      statusCode: code
     );
   }
 
@@ -34,6 +37,7 @@ class UserCreateResponse {
     data['username'] = username;
     data['phone'] = phone;
     data['birth'] = birth;
+    data['status_code'] = statusCode;
     return data;
   }
 }

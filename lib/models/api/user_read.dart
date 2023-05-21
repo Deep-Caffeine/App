@@ -1,23 +1,25 @@
 class UserReadResponse {
-  final String email;
-  final String username;
-  final String phone;
-  final String birth;
-  final String profileUrl;
-  final int level;
-  final List<String> sns;
+  final String? email;
+  final String? username;
+  final String? phone;
+  final String? birth;
+  final String? profileUrl;
+  final int? level;
+  final List<String>? sns;
+  final int statusCode;
 
   UserReadResponse({
-    required this.email,
-    required this.username,
-    required this.phone,
-    required this.birth,
-    required this.profileUrl,
-    required this.level,
-    required this.sns
+    this.email,
+    this.username,
+    this.phone,
+    this.birth,
+    this.profileUrl,
+    this.level,
+    this.sns,
+    required this.statusCode
   });
 
-  factory UserReadResponse.fromJson(Map<String, dynamic> json) {
+  factory UserReadResponse.fromJson(Map<String, dynamic> json, int code) {
     return UserReadResponse(
       email: json['email'],
       username: json['username'],
@@ -25,7 +27,8 @@ class UserReadResponse {
       birth: json['birth'],
       profileUrl: json['profile_url'],
       level: json['level'],
-      sns: json['sns'].cast<String>()
+      sns: json['sns'].cast<String>(),
+      statusCode: code
     );
   }
 
@@ -38,6 +41,7 @@ class UserReadResponse {
     data['profile_url'] = profileUrl;
     data['level'] = level;
     data['sns'] = sns;
+    data['status_code'] = statusCode;
     return data;
   }
 }
