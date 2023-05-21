@@ -15,8 +15,6 @@ class APIUtils {
   // READ
 
   // UPDATE
-
-  static const String url = "https://www.ideaconnect.online/user";
   static Future<UserUpdateResponse?> getUpdateInfo() async {
     final response = await http.put(Uri.parse(url));
     if (response.statusCode == 200) {
