@@ -15,6 +15,17 @@ class APIUtils {
   // COMMON (이부분은 건들지마세요)
 
   // CREATE
+  Future<UserCreateResponse?> createUser() async {
+    final response = await http.post(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      final jsonBody = json.decode(response.body);
+      return UserCreateResponse.fromJson(jsonBody);
+    } else {
+      print('User create failed : ${response.statusCode}');
+      throw Exception('Failed to load UserCreateResponse');
+    }
+  }
 
   // READ
   Future<UserReadResponse> readUserData() async {
