@@ -19,7 +19,16 @@ class APIUtils {
 
 
   // READ
-
+  Future<UserReadResponse> readUserData() async {
+    final url = Uri.parse('$baseUrl/user');
+    final response = await http.get(
+      url,
+      headers: <String, String> {
+        'Content-Type' : 'application/json'
+      }
+    );
+    return UserReadResponse.fromJson(jsonDecode(response.body), response.statusCode);
+  }
 
   // UPDATE
 
