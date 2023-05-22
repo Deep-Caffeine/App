@@ -16,7 +16,6 @@ class APIUtils {
 
 
   // CREATE
-  final String url = dotenv.env['API_BASE_HTTP']!;
 
   Future<UserCreateResponse?> createUser() async {
     final response = await http.post(Uri.parse(url));
