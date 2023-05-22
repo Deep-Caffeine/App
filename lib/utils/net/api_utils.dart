@@ -19,7 +19,15 @@ class APIUtils {
   // READ
 
   // UPDATE
-
+  static Future<UserUpdateResponse?> getUpdateInfo() async {
+    final response = await http.put(Uri.parse(url));
+    if (response.statusCode == 200) {
+      return UserUpdateResponse.fromJson(jsonDecode(response.body));
+    } else {
+      return null;
+    }
+  }
+  
   // DELETE
   static Future<int> deleteUser() async {
     final response = await http.delete(Uri.parse(url));
