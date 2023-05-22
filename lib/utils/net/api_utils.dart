@@ -27,6 +27,10 @@ class APIUtils {
       return null;
     }
   }
-
+  
   // DELETE
+  static Future<int> deleteUser() async {
+    final response = await http.delete(Uri.parse(url));
+    return response.statusCode;
+  }
 }
