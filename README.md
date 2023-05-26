@@ -1,5 +1,5 @@
-# Service Name
-[Service Name] flutter 어플리케이션입니다.
+# 눈치코치
+[눈치코치] flutter 어플리케이션입니다.
 * Platform : Android / iOS
 
 # Convention
